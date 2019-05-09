@@ -1,14 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello World!</h1>
-      </div>
-    );
-  }
-}
+setInterval(update, 1000);
+
 
 ReactDOM.render(React.createElement(App), document.getElementById('root'));
