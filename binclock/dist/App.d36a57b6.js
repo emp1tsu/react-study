@@ -25757,10 +25757,51 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-setInterval(update, 1000);
-asdfsd;
+var zero2 = function zero2(v) {
+  v = String('00' + v);
+  return v.substr(v.length - 2, 2);
+};
 
-_reactDom.default.render(_react.default.createElement(App), document.getElementById('root'));
+var update = function update() {
+  var now = new Date();
+  var hh = zero2(now.getHours());
+  var mm = zero2(now.getMinutes());
+  var ss = zero2(now.getSeconds());
+  var binStr = hh + mm + ss;
+  var style0 = {
+    color: 'brown'
+  };
+  var style1 = {
+    color: 'red'
+  };
+  var lines = [];
+
+  for (var i = 0; i < binStr.length; i++) {
+    var v = parseInt(binStr.substr(i, 1)); // １桁ずつ２進数にする
+
+    var bin = '0000' + v.toString(2); // 後ろの４桁とってくる
+
+    var bin8 = bin.substr(bin.length - 4, 4);
+
+    for (var j = 0; j < bin8.length; j++) {
+      if (bin8.substr(j, 1) === '0') {
+        lines.push(_react.default.createElement("span", {
+          style: style0
+        }, "\u25CB"));
+      } else {
+        lines.push(_react.default.createElement("span", {
+          style: style0
+        }, "\u25CF"));
+      }
+    }
+
+    lines.push(_react.default.createElement("br", null));
+  }
+
+  _reactDom.default.render(_react.default.createElement("div", null, lines), document.getElementById('root'));
+};
+
+setInterval(update, 1000);
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -25789,7 +25830,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52075" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52535" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
