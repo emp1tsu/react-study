@@ -31,7 +31,7 @@ const update = () => {
       if (bin8.substr(j, 1) === '0') {
         lines.push(<span style={style0}>○</span>);
       } else {
-        lines.push(<span style={style0}>●</span>);
+        lines.push(<span style={style1}>●</span>);
       }
     }
     lines.push(<br />);
